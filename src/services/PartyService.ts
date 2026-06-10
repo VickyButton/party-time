@@ -23,7 +23,7 @@ export class PartyService {
   }) {
     const id = this.idProvider.generateId();
 
-    return await this.partyRepository.add({
+    return await this.partyRepository.create({
       id,
       name: data.name,
       description: data.description,

@@ -2,11 +2,11 @@ import type { Party } from '../domain/Party';
 
 export interface PartyRepository {
   /**
-   * Adds a party to the repository.
-   * @param party The party being added.
-   * @returns The added party.
+   * Creates a party in the repository.
+   * @param party The party being created.
+   * @returns The created party.
    */
-  add(party: Party): Promise<Party>;
+  create(party: Party): Promise<Party>;
   /**
    * Finds a party by ID.
    * @param id The ID of the party to find.
