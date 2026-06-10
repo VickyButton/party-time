@@ -7,4 +7,6 @@ export interface Reservation {
   attendeeName: string;
   /** The attendee's email address. */
   attendeeEmail: string;
+  /** The time in which the reservation was submitted, as a UNIX timestamp. */
+  submittedOn: number;
 }
