@@ -1,6 +1,6 @@
 import type { Validator } from '../types/Validator';
 
-export type PartyCreationValidator = Validator<{
+export type PartyCreationDataValidator = Validator<{
   name: string;
   description?: string;
   startTime: number;

@@ -1,12 +1,15 @@
 import type { IdProvider } from '../providers/IdProvider.types';
 import type { PartyRepository } from '../repositories/PartyRepository.types';
+import type { PartyCreationDataValidator } from '../validators/PartyCreationDataValidator';
 
 export class PartyService {
   private readonly idProvider: IdProvider;
+  private readonly partyCreationValidator: PartyCreationDataValidator;
   private readonly partyRepository: PartyRepository;
 
-  constructor(idProvider: IdProvider, partyRepository: PartyRepository) {
+  constructor(idProvider: IdProvider, partyCreationValidator: PartyCreationDataValidator, partyRepository: PartyRepository) {
     this.idProvider = idProvider;
+    this.partyCreationValidator = partyCreationValidator;
     this.partyRepository = partyRepository;
   }
 
@@ -21,14 +24,15 @@ export class PartyService {
     startTime: number;
     stopTime?: number;
   }) {
+    const validatedData = this.partyCreationValidator.validate(data);
     const id = this.idProvider.generateId();
 
     return await this.partyRepository.create({
       id,
-      name: data.name,
-      description: data.description,
-      startTime: data.startTime,
-      stopTime: data.stopTime,
+      name: validatedData.name,
+      description: validatedData.description,
+      startTime: validatedData.startTime,
+      stopTime: validatedData.stopTime,
     });
   }
 

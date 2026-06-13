@@ -1,0 +1,2 @@
+export const UNIX_TIMESTAMP_MIN = 0;
+export const UNIX_TIMESTAMP_MAX = 2147483647;
