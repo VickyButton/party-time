@@ -1,5 +1,5 @@
-import type { IdProvider } from '../providers/IdProvider.types';
-import type { PartyRepository } from '../repositories/PartyRepository.types';
+import type { IdProvider } from '../providers/IdProvider';
+import type { PartyRepository } from '../repositories/PartyRepository';
 import type { PartyCreationDataValidator } from '../validators/PartyCreationDataValidator';
 
 export class PartyService {
