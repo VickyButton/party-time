@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec node -r ts-node/register src/index.ts",
+    "dev": "nodemon --exec node -r ts-node/register --env-file=.development.env src/index.ts",
     "build": "tsc",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
