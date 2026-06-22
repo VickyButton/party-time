@@ -22,6 +22,7 @@ describe('PartyService', () => {
     const data = {
       name: 'PARTY_NAME',
       description: 'PARTY_DESCRIPTION',
+      location: 'PARTY_LOCATION',
       startTime: 0,
       stopTime: 1,
     };
@@ -30,6 +31,7 @@ describe('PartyService', () => {
       id,
       name: 'PARTY_NAME',
       description: 'PARTY_DESCRIPTION',
+      location: 'PARTY_LOCATION',
       startTime: 0,
       stopTime: 1,
     };

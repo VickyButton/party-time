@@ -2,5 +2,7 @@ export const PARTY_NAME_MIN_LENGTH = 1;
 export const PARTY_NAME_MAX_LENGTH = 128;
 export const PARTY_DESCRIPTION_MIN_LENGTH = 1;
 export const PARTY_DESCRIPTION_MAX_LENGTH = 256;
+export const PARTY_LOCATION_MIN_LENGTH = 1;
+export const PARTY_LOCATION_MAX_LENGTH = 256;
 export const PARTY_START_TIME_MIN = 0;
 export const PARTY_STOP_TIME_MIN = 0;

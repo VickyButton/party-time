@@ -21,6 +21,7 @@ export class PartyService {
   public async createParty(data: {
     name: string;
     description?: string;
+    location?: string;
     startTime: number;
     stopTime?: number;
   }) {
@@ -31,6 +32,7 @@ export class PartyService {
       id,
       name: validatedData.name,
       description: validatedData.description,
+      location: validatedData.location,
       startTime: validatedData.startTime,
       stopTime: validatedData.stopTime,
     });

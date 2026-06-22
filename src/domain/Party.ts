@@ -5,6 +5,8 @@ export interface Party {
   name: string;
   /** A description of what the party is for. */
   description?: string;
+  /** The location (e.g. address, business name, etc.) in which the party is being hosted. */
+  location?: string;
   /** The time in which the party starts, as a UNIX timestamp. */
   startTime: number;
   /** The time in which the party stops, as a UNIX timestamp. */
