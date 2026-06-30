@@ -2,21 +2,21 @@ import type { Party } from '../domain/Party';
 
 export interface PartyRepository {
   /**
-   * Creates a party in the repository.
-   * @param party The party being created.
-   * @returns The created party.
+   * Adds a party to the repository.
+   * @param party The party being added.
+   * @returns The added party.
    */
-  create(party: Party): Promise<Party>;
+  addParty(party: Party): Promise<Party>;
   /**
-   * Finds a party by ID.
-   * @param id The ID of the party to find.
+   * Retrieves a party from the repository by ID.
+   * @param id The ID of the party to retrieve.
    * @returns The party if found, null if not.
    */
-  findById(id: string): Promise<Party | null>;
+  getPartyById(id: string): Promise<Party | null>;
   /**
    * Deletes a party from the repository.
    * @param id The ID of the party to delete.
    * @returns True if the party was deleted, false if not.
    */
-  delete(id: string): Promise<boolean>;
+  deleteParty(id: string): Promise<boolean>;
 }

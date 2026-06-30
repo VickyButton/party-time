@@ -28,7 +28,7 @@ export class PartyService {
     const validatedData = this.partyCreationValidator.validate(data);
     const id = this.idProvider.generateId();
 
-    return await this.partyRepository.create({
+    return await this.partyRepository.addParty({
       id,
       name: validatedData.name,
       description: validatedData.description,
@@ -44,7 +44,7 @@ export class PartyService {
    * @returns The party if it exists, null if not.
    */
   public async getParty(id: string) {
-    return await this.partyRepository.findById(id);
+    return await this.partyRepository.getPartyById(id);
   }
 
   /**
@@ -53,6 +53,6 @@ export class PartyService {
    * @returns True if the party was deleted, false if not.
    */
   public async deleteParty(id: string) {
-    return await this.partyRepository.delete(id);
+    return await this.partyRepository.deleteParty(id);
   }
 }

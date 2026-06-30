@@ -8,9 +8,9 @@ const partyCreationValidator = {
   validate: vi.fn(),
 };
 const partyRepository = {
-  create: vi.fn(),
-  findById: vi.fn(),
-  delete: vi.fn(),
+  addParty: vi.fn(),
+  getPartyById: vi.fn(),
+  deleteParty: vi.fn(),
 };
 
 describe('PartyService', () => {
@@ -18,7 +18,7 @@ describe('PartyService', () => {
     vi.resetAllMocks();
   });
 
-  it('should create a party in the repository', async () => {
+  it('should add a party to the repository', async () => {
     const data = {
       name: 'PARTY_NAME',
       description: 'PARTY_DESCRIPTION',
@@ -38,25 +38,25 @@ describe('PartyService', () => {
 
     idProvider.generateId.mockReturnValueOnce(id);
     partyCreationValidator.validate.mockReturnValueOnce(data);
-    partyRepository.create.mockReturnValueOnce(expectedResult);
+    partyRepository.addParty.mockReturnValueOnce(expectedResult);
 
     const service = new PartyService(idProvider, partyCreationValidator, partyRepository);
     const result = await service.createParty(data);
 
-    expect(partyRepository.create).toHaveBeenCalledWith(expectedResult);
+    expect(partyRepository.addParty).toHaveBeenCalledWith(expectedResult);
     expect(result).toBe(expectedResult);
   });
 
-  it('should retrieve a party from the repository', async () => {
+  it('should retrieve a party from the repository by ID', async () => {
     const id = 'PARTY_ID';
     const expectedResult = {
     };
-    partyRepository.findById.mockResolvedValueOnce(expectedResult);
+    partyRepository.getPartyById.mockResolvedValueOnce(expectedResult);
 
     const service = new PartyService(idProvider, partyCreationValidator, partyRepository);
     const result = await service.getParty(id);
 
-    expect(partyRepository.findById).toHaveBeenCalledWith(id);
+    expect(partyRepository.getPartyById).toHaveBeenCalledWith(id);
     expect(result).toBe(expectedResult);
   });
 
@@ -64,12 +64,12 @@ describe('PartyService', () => {
     const id = 'PARTY_ID';
     const expectedResult = true;
 
-    partyRepository.delete.mockResolvedValueOnce(expectedResult);
+    partyRepository.deleteParty.mockResolvedValueOnce(expectedResult);
 
     const service = new PartyService(idProvider, partyCreationValidator, partyRepository);
     const result = await service.deleteParty(id);
 
-    expect(partyRepository.delete).toHaveBeenCalledWith(id);
+    expect(partyRepository.deleteParty).toHaveBeenCalledWith(id);
     expect(result).toBe(expectedResult);
   });
 });
